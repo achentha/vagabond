@@ -1,9 +1,21 @@
-<%= form_for @user, url: "/sessions", method: "post" do |f| %>
- <div>
-   <%= f.text_field :name, placeholder: "Name" %>
- </div>
- <div>
-   <%= f.password_field :password, placeholder: "Password" %>
- </div>
- <%= f.submit "Log In" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <%= form_for @user do |f| %>
+        <div class="form-group row">
+          <%= f.label :name, class:"col-form-label col-sm-5" %>
+          <%= f.text_field :name, class: "form-control col-sm-7" %>
+        </div>
+        <div class="form-group row">
+          <%= f.label :password, class:"col-form-label col-sm-5" %>
+          <%= f.password_field :password, class: "form-control col-sm-7" %>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-5">
+          </div>
+          <%= f.submit "Login", class:"btn btn-lg" %>
+        </div>
+    <% end %>
+  </div>
+</div>
