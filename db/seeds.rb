@@ -5,3 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+Post.destroy_all
+
+User.create([{
+    name: "ellis",
+    current_city: "San Francisco",
+    password: "ellis"
+    },
+    {
+    name: "chen",
+    current_city: "Fremont",
+    password: "chen",
+    },
+    {
+    name: "david",
+    current_city: "New York",
+    password: "david"
+    }])
+
+Post.create([
+    {
+      title: "Food",
+      content: "Great food in SJ",
+      user: User.first
+             },
+    {
+      title: "Job",
+      content: "No jobs in SJ",
+      user: User.second
+    }, {
+      title: "Movies",
+      content: "Some movies in Dallas",
+      user: User.third
+    },
+            {
+      title: "School",
+      content: "School is great!",
+      user: User.first
+    }])
