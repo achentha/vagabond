@@ -1,5 +1,5 @@
 <h1><%= @city.name %></h1>
-<%# image_tag @city.photo %>
+<%= image_tag @city.photo %>
 <% @city.posts.each do |post| %>
 	<h3><%=link_to post.title, post %> </h3>
 	<p><strong>Author: <%=post.user.name%></strong></p>
