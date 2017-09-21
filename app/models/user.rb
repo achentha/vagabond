@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :posts
+  validates :name, :current_city, presence: true
+  validates :name, uniqueness: true
   
   has_secure_password
 

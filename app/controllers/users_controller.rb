@@ -8,13 +8,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
-    login(@user)
-    redirect_to user_path(@user)
+    @user = User.new(user_params)
+    if @user.save
+      login(@user)
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.errors.full_messages.join(" ")
+      redirect_to new_user_path
+    end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
+    if @user == nil
+      flash[:error] = "User does not exist"
+      redirect_to root_path
+    end
+
   end
 
   def edit
