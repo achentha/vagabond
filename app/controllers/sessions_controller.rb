@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         login(@user)
         redirect_to @user
       else
+        flash[:error] = "Wrong username/password"
         redirect_to login_path
       end
     end
