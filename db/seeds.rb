@@ -5,9 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
 
 Post.destroy_all
 User.destroy_all
+City.destroy_all
 
 User.create([{
     name: "ellis",
@@ -25,23 +27,53 @@ User.create([{
     password: "david"
     }])
 
+    City.create([
+        {
+          name: "San Francisco",
+          photo: "https://booksandbark.files.wordpress.com/2016/06/enviousfluffygarpike.gif?w=692",
+      }])
+
 Post.create([
     {
-      title: "Food",
-      content: "Great food in SJ",
-      user: User.first
-             },
-    {
-      title: "Job",
-      content: "No jobs in SJ",
-      user: User.second
-    }, {
-      title: "Movies",
-      content: "Some movies in Dallas",
-      user: User.third
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.first,
+      city: City.first
     },
-            {
-      title: "School",
-      content: "School is great!",
-      user: User.first
-    }])
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.first,
+      city: City.first
+    },
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.second,
+      city: City.first
+    },
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.third,
+      city: City.first
+    },
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.last,
+      city: City.first
+    },
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.last,
+      city: City.first
+    },
+    {
+      title: FFaker::Tweet.tweet,
+      content: FFaker::Lorem.paragraph,
+      user: User.last,
+      city: City.first
+    }
+])

@@ -1,9 +1,17 @@
-<h1><%= @city.name %></h1>
+<div class="row">
+	<h1 class="col-sm-10"><%= @city.name %></h1>
+	<%= link_to "New Post", new_post_path(@city), class: "col-sm-2" %>
+</div>
 <%= image_tag @city.photo, class: "img-fluid" %>
 <br>
 <% @city.posts.each do |post| %>
-	<h3><%=link_to post.title, post %> </h3>
-	<p><strong>Author: <%=post.user.name%></strong></p>
-	<p><%=post.content%></p>
+
+<div class="card card-inverse card-primary mb-3">
+ <div class="card-block">
+		 <h3><%= link_to post.title, post_path(post)%></h3>
+		 <p><strong>Author: <%=post.user.name%>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Posted At: <%=post.created_at.strftime("%F %H:%M")%>&nbsp;&nbsp;&nbsp;&nbsp;City: <%= post.city.name%></p>
+		 <p><%= post.content%></p>
+ </div>
+</div>
+
 	<% end %>
-	<%= link_to "New post", new_post_path(@city) %>
