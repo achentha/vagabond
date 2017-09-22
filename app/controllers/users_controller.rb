@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :verify_user, only: [:edit, :update]
   def index
+    @users = Array.new
+    User.all[0..4].each do |user|
+      @users << user
+    end
   end
 
   def new
