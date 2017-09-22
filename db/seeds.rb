@@ -12,20 +12,42 @@ User.destroy_all
 City.destroy_all
 
 User.create([{
-    name: "ellis",
+    name: "Michelle",
     current_city: "San Francisco",
-    password: "ellis"
+    password: "ellis",
+    photo: "http://cs.wellesley.edu/~hcilab/iGEM_wiki/images/Team/Michelle.jpg"
     },
     {
-    name: "chen",
-    current_city: "Fremont",
-    password: "chen",
+       name: "Esther",
+       current_city: "Los Angeles",
+       password: "ellis",
+       photo: "https://avatars2.githubusercontent.com/u/6993359?v=4&s=460"
     },
     {
-    name: "david",
-    current_city: "New York",
-    password: "david"
-    }])
+       name: "Matt",
+       current_city: "San Francisco",
+       password: "ellis",
+       photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAA0rAAAAJGRjODgxZGRlLWRiYzgtNDlhNi05MGEzLWFhYTJkMmM1Y2U1NQ.jpg"
+    },
+    {
+       name: "Kim Un",
+       current_city: "BestKorea",
+       password: "ellis",
+       photo: "http://i2.cdn.cnn.com/cnnnext/dam/assets/170109100009-north-korea-missile-launch-threat-trump-hancocks-lok-00002012-large-169.jpg"
+    },
+    {
+       name: "Donald",
+       current_city: "Washington",
+       password: "ellis",
+       photo: "https://pro.creditwritedowns.com/wp-content/uploads/2016/12/donald_trump_flag.jpg"
+    },
+    {
+       name: "Chris",
+       current_city: "Dallas",
+       password: "ellis",
+       photo: "http://www.trbimg.com/img-57b793b4/turbine/la-et-ct-chris-hansen-20160819-snap"
+    },
+    ])
 
     City.create([
         {
@@ -34,11 +56,11 @@ User.create([{
       },
       {
         name: "London",
-        photo: "https://cdn.londonandpartners.com/visit/general-london/areas/westminster-st-james/60262-640x360-parliament-bridge-640.jpg"
+        photo: "http://data.whicdn.com/images/36451199/original.gif"
         },
         {
           name: "Gibraltar",
-          photo: "http://www.visitcapitalcity.com/imagens/city/gibraltar/Gibraltar.jpg"
+          photo: "https://media.tenor.com/images/b1a747ade0d210db743af735482b42f3/tenor.gif"
           }])
 
 Post.create([
