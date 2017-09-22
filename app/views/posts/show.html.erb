@@ -1,5 +1,9 @@
 <p><strong>Title: </strong><%= @post.title %></p>
 <p><strong>Author: </strong><%= @post.user.name %></p>
+<p><strong>City: </strong><%= link_to @post.city.name, @post.city %></p>
+<p><strong>Date: </strong><%= @post.created_at.strftime("%F %H:%M")%></p>
+
+
 <p><%= @post.content %></p>
-<%= link_to "Edit post", edit_post_path(@post) %>
-<%= button_to "Delete post", @post, method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Edit Post", edit_post_path(@post) %>
+<%= button_to "Delete Post", @post, method: :delete, data: {confirm: "Are you sure?"} %>
