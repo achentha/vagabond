@@ -31,7 +31,15 @@ User.create([{
         {
           name: "San Francisco",
           photo: "https://booksandbark.files.wordpress.com/2016/06/enviousfluffygarpike.gif?w=692",
-      }])
+      },
+      {
+        name: "London",
+        photo: "https://cdn.londonandpartners.com/visit/general-london/areas/westminster-st-james/60262-640x360-parliament-bridge-640.jpg"
+        },
+        {
+          name: "Gibraltar",
+          photo: "http://www.visitcapitalcity.com/imagens/city/gibraltar/Gibraltar.jpg"
+          }])
 
 Post.create([
     {
