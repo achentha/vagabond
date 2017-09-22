@@ -5,5 +5,18 @@
 
 
 <p><%= @post.content %></p>
+<% if current_user && @post.user == current_user %>
 <%= link_to "Edit Post", edit_post_path(@post) %>
 <%= button_to "Delete Post", @post, method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+
+<% @post.comments.each do |comment| %>
+<p><strong><%=comment.user.name %>: </strong><%= comment.content %>
+<% if current_user && comment.user == current_user %>
+<%= link_to "Edit comment", "/posts/#{@post.id}/comments/#{comment.id}/edit" %>
+<%= link_to "Delete comment", "/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
+<% end %>
+</p>
+<% end %>
+
+<%= link_to "Add comment", new_comment_path(@post) %>

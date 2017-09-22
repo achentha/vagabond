@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   patch "/posts/:id", to: "posts#update"
   delete "posts/:id", to: "posts#destroy"
 
+  get "posts/:id/comments/new", to: "comments#new", as: "new_comment"
+  post "posts/:id/comments", to: "comments#create"
+  get "posts/:id/comments/:comment_id/edit", to: "comments#edit", as: "edit_comment"
+  patch "posts/:id/comments/:comment_id", to: "comments#update"
+  delete "posts/:id/comments/:comment_id", to: "comments#destroy"
+
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
