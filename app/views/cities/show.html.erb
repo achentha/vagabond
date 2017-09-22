@@ -9,8 +9,8 @@
 <div class="card card-inverse card-primary mb-3">
  <div class="card-block">
 		 <h3><%= link_to post.title, post_path(post)%></h3>
-		 <p><strong>Author: <%=post.user.name%>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Posted At: <%=post.created_at.strftime("%F %H:%M")%>&nbsp;&nbsp;&nbsp;&nbsp;City: <%= post.city.name%></p>
-		 <p><%= post.content.truncate(300)%></p>
+		 <p><strong>Author: <%=post.user.name%>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Posted <%=time_ago_in_words(post.created_at)%> ago&nbsp;&nbsp;&nbsp;&nbsp;City: <%= post.city.name%></p>
+		 <p><%= truncate(post.content,length: 300) {link_to "See more", post}%></p>
  </div>
 </div>
 
