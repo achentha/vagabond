@@ -6,11 +6,31 @@
 
   <div class="show-right-side col-sm-9">
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <h3><%= @post.title %></h3>
         <p class="overflow-posts"><%= @post.content %></p>
+        <div>
+<p><%= @post.comments.length%> comments</p>
+</div>
+<% @post.comments.each do |comment| %>
+<div class="row">
+<div class="col-sm-10">
+<p class="overflow-posts"><strong><%=comment.user.name %>: </strong><%= comment.content %></p>
+</div>
+<div class="col-sm-2">
+<% if current_user && comment.user == current_user %>
+<%= link_to "Edit", "/posts/#{@post.id}/comments/#{comment.id}/edit", class:"btn btn-primary btn-sm back-color" %>
+<%= link_to "Delete", "/posts/#{@post.id}/comments/#{comment.id}", method: :delete, class:"btn btn-primary btn-sm back-color" %>
+<% end %>
+</div>
+
+</div>
+<% end %>
+<% if current_user %>
+<%= link_to "Add comment", new_comment_path(@post) %>
+<% end %>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <% if current_user && @post.user == current_user %>
             <%= link_to "Edit Post", edit_post_path(@post), class:"btn btn-primary back-color"%>
             <%= link_to "Delete Post", @post, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-primary back-color"%>
@@ -18,5 +38,6 @@
       </div>
     </div>
   </div>
+
 
 </div>

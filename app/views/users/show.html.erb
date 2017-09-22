@@ -4,6 +4,7 @@
     <%= image_tag 'https://pbs.twimg.com/profile_images/675408020730470400/Mibaxn2x.jpg', class: "show-image"%>
     <p><strong>Join Date: </strong><%=@user.created_at.strftime("%F")%></p>
     <p><strong>Current City: </strong><%=@user.current_city%></p>
+    <p><strong>Comments left: </strong><%=@user.comments.length%></p>
     <% if current_user && current_user.id.to_s == params[:id].to_s%>
       <%= link_to "Edit User", edit_user_path(@user), class:"btn btn-primary back-color"%>
     <% end %>
