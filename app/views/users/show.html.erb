@@ -5,8 +5,13 @@
     <p><strong>Join Date: </strong><%=@user.created_at.strftime("%F")%></p>
     <p><strong>Current City: </strong><%=@user.current_city%></p>
     <p><strong>Comments left: </strong><%=@user.comments.length%></p>
-    <% if current_user && current_user.id.to_s == params[:id].to_s%>
-      <%= link_to "Edit User", edit_user_path(@user), class:"btn btn-primary back-color"%>
+    <% City.all.each do |city| %>
+      <% if @user.posts.where(city: city).length > 0 %>
+        <p><strong><%= link_to city.name, city %>: </strong><%=@user.posts.where(city: city).length%> posts</p>
+      <% end %>
+    <% end %>
+    <% if current_user && current_user.name.to_s == params[:username].to_s%>
+      <%= link_to "Edit User", edit_user_path(@user.name), class:"btn btn-primary back-color"%>
     <% end %>
   </div>
 
@@ -26,7 +31,7 @@
 					<% end %>
 
         </div>
-        <% if current_user && current_user.id.to_s == params[:id].to_s%>
+        <% if current_user && current_user.name.to_s == params[:username].to_s%>
         <div class="col-sm-2">
           <%= link_to "Edit Post", edit_post_path(post), class:"btn btn-primary back-color" %><br>
           <%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-primary back-color" %>
