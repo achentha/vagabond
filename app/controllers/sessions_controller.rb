@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       @user = User.confirm(user_params)
       if @user
         login(@user)
-        redirect_to @user
+        redirect_to user_path(@user.name)
       else
         flash[:error] = "Wrong username/password"
         redirect_to login_path
