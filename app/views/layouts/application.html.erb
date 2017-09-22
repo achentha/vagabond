@@ -22,7 +22,7 @@
        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Cities
        </button> -->
-       <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Cities </a>
+       <a class="dropdown-toggle link-style" data-toggle="dropdown" href="#"> Cities </a>
        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          <% City.all.each do |city| %>
            <%= link_to city.name, city, class: "dropdown-item" %>

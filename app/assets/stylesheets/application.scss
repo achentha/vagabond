@@ -42,6 +42,12 @@
   color: white;
 }
 
+.link-style:hover {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
 .center-link {
   text-align: center;
 }
@@ -50,6 +56,7 @@
   display: block;
   margin: auto;
   width: 60%;
+  margin-top: 20px;
 }
 
 .main-content {
@@ -70,4 +77,13 @@
 
 .card-link:hover {
   text-decoration: none;
+}
+
+.back-color {
+  color: white;
+  margin: 10px 0 0 0;
+}
+
+.overflow-posts {
+  overflow-wrap: break-word;
 }

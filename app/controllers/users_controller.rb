@@ -4,10 +4,18 @@ class UsersController < ApplicationController
   end
 
   def new
+    if current_user
+      flash[:error] = "You cannot sign up while you are logged in."
+      redirect_to current_user and return
+    end
     @user = User.new
   end
 
   def create
+    if current_user
+      flash[:error] = "You cannot sign up while you are logged in."
+      redirect_to current_user and return
+    end
     @user = User.new(user_params)
     if @user.save
       login(@user)
