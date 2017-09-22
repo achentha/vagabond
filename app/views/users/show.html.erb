@@ -5,7 +5,7 @@
     <p><strong>Join Date: </strong><%=@user.created_at.strftime("%F")%></p>
     <p><strong>Current City: </strong><%=@user.current_city%></p>
     <% if current_user && current_user.id.to_s == params[:id].to_s%>
-      <%= link_to "Edit User", edit_user_path(@user)%>
+      <%= link_to "Edit User", edit_user_path(@user), class:"btn btn-primary back-color"%>
     <% end %>
   </div>
 
@@ -27,8 +27,8 @@
         </div>
         <% if current_user && current_user.id.to_s == params[:id].to_s%>
         <div class="col-sm-2">
-          <%= link_to "Edit Post", edit_post_path(post) %><br>
-          <%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"} %>
+          <%= link_to "Edit Post", edit_post_path(post), class:"btn btn-primary back-color" %><br>
+          <%= link_to "Delete Post", post, method: :delete, data: {confirm: "Are you sure?"}, class:"btn btn-primary back-color" %>
         </div>
         <% end %>
       </div>
