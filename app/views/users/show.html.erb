@@ -5,6 +5,11 @@
     <p><strong>Join Date: </strong><%=@user.created_at.strftime("%F")%></p>
     <p><strong>Current City: </strong><%=@user.current_city%></p>
     <p><strong>Comments left: </strong><%=@user.comments.length%></p>
+    <% City.all.each do |city| %>
+      <% if @user.posts.where(city: city).length > 0 %>
+        <p><strong><%= link_to city.name, city %>: </strong><%=@user.posts.where(city: city).length%> posts</p>
+      <% end %>
+    <% end %>
     <% if current_user && current_user.name.to_s == params[:username].to_s%>
       <%= link_to "Edit User", edit_user_path(@user.name), class:"btn btn-primary back-color"%>
     <% end %>
