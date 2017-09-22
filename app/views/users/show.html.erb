@@ -14,14 +14,14 @@
       <% @user.posts.each do |post| %>
       <div class="row">
         <div class="col-sm-10">
-
+					<%= link_to post, class:"card-link" do %>
           <div class="card card-inverse card-primary mb-3">
            <div class="card-block">
              <p><strong>Author: <%=post.user.name%>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Posted At: <%=post.created_at.strftime("%F %H:%M")%>&nbsp;&nbsp;&nbsp;&nbsp;City: <%= post.city.name%></p>
                <p><%= post.content%></p>
            </div>
           </div>
-
+					<% end %>
 
         </div>
         <% if current_user && current_user.id.to_s == params[:id].to_s%>
