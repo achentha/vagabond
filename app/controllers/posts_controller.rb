@@ -7,13 +7,13 @@ class PostsController < ApplicationController
 
   def new
   	@post = Post.new
-  	@city = City.find(params[:id])
+  	@city = City.find_by(name: params[:cityname])
   end
 
   def create
   	@post = Post.new post_params
   	@post.user = current_user
-  	@post.city = City.find(params[:id])
+  	@post.city = City.find_by(name: params[:cityname])
   	if @post.save
   		redirect_to @post
   	else
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   def verify_logged_in
   	if !current_user
   		flash[:error] = "You must be logged in to create or modify posts"
-  		redirect_to City.find(params[:id]) and return
+  		redirect_to City.find_by(name: params[:cityname]) and return
   	end
   end
 
