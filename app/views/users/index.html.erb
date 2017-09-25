@@ -1,10 +1,10 @@
 <%= image_tag "http://vagabondrva.com/wp-content/uploads/2016/03/vagabond-logo-final-500.jpg", class:"img-fluid"%>
 <h2 class="center-link">Meet some of our fellow college students!</h2>
 <div class="row margin-photo-background">
-  <div class="col-sm-1"></div>
+  <!--<div class="col-sm-1"></div>-->
   <% @users.each do |user| %>
     <div class="col-sm-2">
-      <%= image_tag user.photo, class: "root-photos img-fluid" %>
+      <%= image_tag user.avatar.url, class: "root-photos img-fluid" %>
       <div class="center-link"><%=user.name%></div>
     </div>
   <% end %>
