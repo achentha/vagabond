@@ -66,7 +66,7 @@ User.create([{
           }])
 posts_arr = []
 
-25.times do 
+25.times do
   posts_arr << {
      title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
@@ -75,7 +75,7 @@ posts_arr = []
   }
 end
 
-15.times do 
+15.times do
   posts_arr << {
      title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
@@ -84,7 +84,7 @@ end
   }
 end
 
-7.times do 
+7.times do
   posts_arr << {
      title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
@@ -97,7 +97,7 @@ end
 Post.create(posts_arr)
 comments_arr = []
 
-50.times do 
+50.times do
   comments_arr << {
     content: FFaker::Lorem.paragraph,
     user: User.all.sample,
