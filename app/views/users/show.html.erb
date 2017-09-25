@@ -7,7 +7,7 @@
     <p><strong>Comments left: </strong><%=@user.comments.length%></p>
     <% City.all.each do |city| %>
       <% if @user.posts.where(city: city).length > 0 %>
-        <p><strong><%= link_to city.name, city %>: </strong><%=@user.posts.where(city: city).length%> posts</p>
+        <p><strong><%= link_to city.name, city_path(city.name) %>: </strong><%=@user.posts.where(city: city).length%> posts</p>
       <% end %>
     <% end %>
     <% if current_user && current_user.name.to_s == params[:username].to_s%>
