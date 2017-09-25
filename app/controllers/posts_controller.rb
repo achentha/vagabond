@@ -1,10 +1,6 @@
 class PostsController < ApplicationController
 	before_action :verify_logged_in, except: [:show]
 	before_action :find_and_verify_user, only: [:edit, :update, :destroy]
-  def show
-    @post = Post.find_by_id(params[:id])
-		@user = User.find_by_id(@post.user_id)
-  end
 
   def new
   	@post = Post.new
@@ -23,8 +19,12 @@ class PostsController < ApplicationController
   	end
   end
 
+  def show
+    @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(@post.user_id)
+  end
+
   def edit
-  	
   end
 
   def update
@@ -42,6 +42,7 @@ class PostsController < ApplicationController
   end
 
   private
+  
   def post_params
   	params.require(:post).permit(:title,:content,:user,:city)
   end

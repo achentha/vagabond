@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   before_action :verify_user, only: [:edit, :update]
+
   def index
-    @users = Array.new
-    User.all[0..5].each do |user|
-      @users << user
-    end
+    # This gets the first 5 Users, in order of ascending id
+    @users = User.find(:all, :order => "id asc", :limit => 5)
   end
 
   def new
@@ -65,5 +64,6 @@ class UsersController < ApplicationController
       redirect_to user_path
     end
   end
-
 end
+
+# Great use of _path helpers in all controllers 
