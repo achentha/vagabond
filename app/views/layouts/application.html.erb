@@ -25,7 +25,7 @@
        <a class="dropdown-toggle link-style" data-toggle="dropdown" href="#"> Cities </a>
        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
          <% City.all.each do |city| %>
-           <%= link_to city.name, city, class: "dropdown-item" %>
+           <%= link_to city.name, city_path(city.name), class: "dropdown-item" %>
          <% end %>
        </div>
       </div>

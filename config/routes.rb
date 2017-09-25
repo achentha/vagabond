@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
   post "/sessions", to: "sessions#create"
 
-  get "cities/:id", to: "cities#show", as: "city"
-  get "cities/:id/posts/new", to: "posts#new", as: "new_post"
-  post "cities/:id/posts", to: "posts#create"
+  get "cities/:cityname", to: "cities#show", as: "city"
+  get "cities/:cityname/posts/new", to: "posts#new", as: "new_post"
+  post "cities/:cityname/posts", to: "posts#create", as: "create_post"
 end
