@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def destroy
   	@post.delete
-  	redirect_to current_user
+  	redirect_to user_path(current_user.name)
   end
 
   private
