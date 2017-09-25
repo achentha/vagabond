@@ -19,7 +19,7 @@
 <div class="row">
 <div class="col-sm-10">
 <p class="overflow-posts">
-  <%= link_to user_path(comment.user.name) do %>
+  <%= link_to user_path(comment.user.name), class: "image-link" do %>
     <%= image_tag comment.user.avatar.url, class: "comment-image"%>
   <%end%>
   <strong><%=comment.user.name %>: </strong><%= comment.content %></p>
