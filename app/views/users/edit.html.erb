@@ -1,7 +1,7 @@
   <div class="row">
     <div class="col-4">
     </div>
-    <%= form_for @user do |f| %>
+    <%= form_for @user, url: "/users/#{@user.name}" do |f| %>
         <div class="form-group row">
           <%= f.label :name, class:"col-form-label col-sm-5" %>
           <%= f.text_field :name, class: "form-control col-sm-7" %>
@@ -17,7 +17,8 @@
         <div class="form-group row">
           <div class="col-sm-5">
           </div>
-          <%= f.submit "Save", class:"btn btn-lg" %>
+          <%= f.submit "Save", class:"btn btn-primary" %>&nbsp&nbsp
+          <%= link_to "Cancel", user_path(@user), class:"btn btn-primary" %>
         </div>
     <% end %>
   </div>
