@@ -14,13 +14,13 @@
 !/tmp/.keep
 .idea/*
 .idea/.generators
-	.idea/.rakeTasks
-	.idea/misc.xml
-	.idea/modules.xml
-	.idea/vagabond.iml
-	.idea/vcs.xml
-	.idea/workspace.xml
-
+.idea/.rakeTasks
+.idea/misc.xml
+.idea/modules.xml
+.idea/vagabond.iml
+.idea/vcs.xml
+.idea/workspace.xml
+public/system/*
 
 /node_modules
 /yarn-error.log
