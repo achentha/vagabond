@@ -95,6 +95,7 @@
 .root-photos {
   width: 150px;
   height: 150px;
+  max-height: 150px;
 }
 
 .margin-photo-background {
@@ -111,3 +112,6 @@
   text-decoration: none;
 }
 
+.root-bottom-margin {
+  margin-bottom: 25px;
+}

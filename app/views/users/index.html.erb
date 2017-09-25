@@ -3,8 +3,10 @@
 <div class="row margin-photo-background">
   <!--<div class="col-sm-1"></div>-->
   <% @users.each do |user| %>
-    <div class="col-sm-2">
-      <%= image_tag user.avatar.url, class: "root-photos img-fluid" %>
+    <div class="col-md-2 root-bottom-margin">
+      <%= link_to user_path(user.name), class: "image-link" do %>
+        <%= image_tag user.avatar.url, class: "root-photos img-fluid img-responsive" %>
+      <%end%>
       <div class="center-link"><%=user.name%></div>
     </div>
   <% end %>
