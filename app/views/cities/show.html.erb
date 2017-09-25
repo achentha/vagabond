@@ -4,7 +4,7 @@
 </div>
 <%= image_tag @city.photo, class: "img-fluid" %>
 <br>
-<% @city.posts.each do |post| %>
+<% @posts.each do |post| %>
 
 <div class="card card-inverse card-primary mb-3">
  <div class="card-block">
@@ -15,3 +15,5 @@
 </div>
 
 	<% end %>
+
+	<%= paginate @posts%>
