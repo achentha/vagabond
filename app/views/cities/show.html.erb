@@ -1,6 +1,8 @@
 <div class="row">
 	<h1 class="col-sm-10"><%= @city.name %></h1>
-	<%= link_to "New Post", new_post_path(@city.name), class: "col-sm-2 btn btn-primary back-color" %>
+	<% if current_user %>
+		<%= link_to "New Post", new_post_path(@city.name), class: "col-sm-2 btn btn-primary back-color" %>
+	<% end %>
 </div>
 <%= image_tag @city.photo, class: "img-fluid" %>
 <br>
