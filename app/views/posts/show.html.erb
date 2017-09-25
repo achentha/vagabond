@@ -22,7 +22,7 @@
   <%= link_to user_path(comment.user.name), class: "image-link" do %>
     <%= image_tag comment.user.avatar.url, class: "comment-image"%>
   <%end%>
-  <strong><%=comment.user.name %>: </strong><%= comment.content %></p>
+  <strong><%=link_to comment.user.name, user_path(comment.user.name) %>: </strong><%= comment.content %></p>
 </div>
 <div class="col-sm-2">
 <% if current_user && comment.user == current_user %>
