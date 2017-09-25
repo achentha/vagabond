@@ -92,4 +92,16 @@ end
       city: City.third
   }
 end
+
+
 Post.create(posts_arr)
+comments_arr = []
+
+50.times do 
+  comments_arr << {
+    content: FFaker::Lorem.paragraph,
+    user: User.all.sample,
+    post: Post.all.sample
+  }
+end
+Comment.create(comments_arr)
