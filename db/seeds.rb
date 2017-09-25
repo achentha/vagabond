@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'ffaker'
 
+Comment.destroy_all
 Post.destroy_all
 User.destroy_all
 City.destroy_all
+
 
 User.create([{
     name: "Michelle",
@@ -62,48 +64,32 @@ User.create([{
           name: "Gibraltar",
           photo: "https://media.tenor.com/images/b1a747ade0d210db743af735482b42f3/tenor.gif"
           }])
+posts_arr = []
 
-Post.create([
-    {
-      title: FFaker::Tweet.tweet,
+25.times do 
+  posts_arr << {
+     title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
-      user: User.first,
+      user: User.all.sample,
       city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
+  }
+end
+
+15.times do 
+  posts_arr << {
+     title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
-      user: User.first,
-      city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
+      user: User.all.sample,
+      city: City.second
+  }
+end
+
+7.times do 
+  posts_arr << {
+     title: FFaker::Tweet.tweet,
       content: FFaker::Lorem.paragraph,
-      user: User.second,
-      city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
-      content: FFaker::Lorem.paragraph,
-      user: User.third,
-      city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
-      content: FFaker::Lorem.paragraph,
-      user: User.last,
-      city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
-      content: FFaker::Lorem.paragraph,
-      user: User.last,
-      city: City.first
-    },
-    {
-      title: FFaker::Tweet.tweet,
-      content: FFaker::Lorem.paragraph,
-      user: User.last,
-      city: City.first
-    }
-])
+      user: User.all.sample,
+      city: City.third
+  }
+end
+Post.create(posts_arr)
