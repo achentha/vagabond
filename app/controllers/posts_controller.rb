@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 	before_action :find_and_verify_user, only: [:edit, :update, :destroy]
   def show
     @post = Post.find_by_id(params[:id])
+		@user = User.find_by_id(@post.user_id)
   end
 
   def new

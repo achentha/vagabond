@@ -1,7 +1,7 @@
 <div class="row">
   <div class="show-left-side col-sm-3">
     <h1><%=@post.user.name%></h1>
-    <%= image_tag 'https://pbs.twimg.com/profile_images/675408020730470400/Mibaxn2x.jpg', class: "show-image"%>
+    <%= image_tag @user.avatar.url, class: "show-image"%>
   </div>
 
   <div class="show-right-side col-sm-9">
@@ -16,7 +16,7 @@
 <% @post.comments.each do |comment| %>
 <div class="row">
 <div class="col-sm-10">
-<p class="overflow-posts"><strong><%=comment.user.name %>: </strong><%= comment.content %></p>
+<p class="overflow-posts"><%= image_tag comment.user.avatar.url, class: "comment-image"%><strong><%=comment.user.name %>: </strong><%= comment.content %></p>
 </div>
 <div class="col-sm-2">
 <% if current_user && comment.user == current_user %>
