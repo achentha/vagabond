@@ -23,7 +23,7 @@
 					<div class="card card-inverse card-primary mb-3">
            <div class="card-block">
                <h3><%= link_to post.title, post_path(post)%></h3>
-               <p><strong>Author: <%=post.user.name%>&nbsp;&nbsp;&nbsp;&nbsp;</strong>Posted <%=time_ago_in_words(post.created_at)%> ago&nbsp;&nbsp;&nbsp;&nbsp;City: <%= post.city.name%></p>
+               <p>Posted <%=time_ago_in_words(post.created_at)%> ago&nbsp;&nbsp;&nbsp;&nbsp;City: <%= link_to post.city.name, city_path(post.city.name)%></p>
                <p><%= truncate(post.content,length: 300) {link_to "See more", post}%></p>
            </div>
           </div>
