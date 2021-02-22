@@ -1,23 +1,31 @@
+<!-- BREAK UP HTML TO BE MORE READABLE (BY MAJOR SECTIONS OF PAGE) -->
+
 <div class="row">
 	<h1 class="col-sm-10"><%= @city.name %></h1>
 	<% if current_user %>
 		<%= link_to "New Post", new_post_path(@city.name), class: "col-sm-2 btn btn-primary back-color" %>
 	<% end %>
 </div>
+
 <%= image_tag @city.photo, class: "img-fluid" %>
+
 <br>
+
 <% @posts.each do |post| %>
+	<!-- FORMAT PROPERLY! INDENTATION IS ESPECIALLY IMPORTANT IN HTML; HARD TO DEBUG OTHERWISE -->
+	<div class="card card-inverse card-primary mb-3">
+	 	<div class="card-block">
+			<h3><%= link_to post.title, post_path(post)%></h3>
+			<p>
+				<strong>
+					Author: <%= link_to post.user.name, user_path(post.user.name)%>&nbsp;<%= link_to user_path(post.user.name), class: "image-link" do %>
+	    			<%= image_tag post.user.avatar.url, class: "comment-image"%>
+	  			<%end%>&nbsp;&nbsp;&nbsp;
+	  		</strong>Posted <%=time_ago_in_words(post.created_at)%> ago
+	  	</p>
+			<p><%= truncate(post.content,length: 300) {link_to "See more", post}%></p>
+	 </div>
+	</div>
+<% end %>
 
-<div class="card card-inverse card-primary mb-3">
- <div class="card-block">
-		 <h3><%= link_to post.title, post_path(post)%></h3>
-		 <p><strong>Author: <%= link_to post.user.name, user_path(post.user.name)%>&nbsp;<%= link_to user_path(post.user.name), class: "image-link" do %>
-    <%= image_tag post.user.avatar.url, class: "comment-image"%>
-  <%end%>&nbsp;&nbsp;&nbsp;</strong>Posted <%=time_ago_in_words(post.created_at)%> ago</p>
-		 <p><%= truncate(post.content,length: 300) {link_to "See more", post}%></p>
- </div>
-</div>
-
-	<% end %>
-
-	<%= paginate @posts, theme: 'twitter-bootstrap-4'%>
+<%= paginate @posts, theme: 'twitter-bootstrap-4'%>

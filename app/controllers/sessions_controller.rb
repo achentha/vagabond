@@ -27,6 +27,4 @@ class SessionsController < ApplicationController
     logout
     redirect_to root_path
   end
-
-
 end
